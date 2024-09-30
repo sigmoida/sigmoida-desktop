@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      - run: npm install
       - name: Publish app
         env:
           GITHUB_TOKEN: ${{ secrets.KEY }}
