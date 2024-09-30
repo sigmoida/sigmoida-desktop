@@ -1,4 +1,4 @@
-name: Release app
+name: Sigmoida Desktop
 on:
   workflow_dispatch:
 jobs:
