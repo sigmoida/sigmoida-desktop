@@ -2,7 +2,6 @@ import type { ForgeConfig } from '@electron-forge/shared-types';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
-import path from 'path'
 
 const config: ForgeConfig = {
   packagerConfig: {
@@ -13,8 +12,8 @@ const config: ForgeConfig = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        authors: 'Alice and Bob',
-        description: 'An example Electron app'
+        authors: 'Sigmoida',
+        description: 'Sigmoida Desktop'
       }
     },
     {
@@ -22,22 +21,6 @@ const config: ForgeConfig = {
       config: {
         bin: 'Electron Starter'
       },
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {
-        bin: 'Electron Starter',
-        options: {
-          icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
-        },
-      }
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {
-        bin: 'Electron Starter',
-        icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
-      }
     }
   ],
   plugins: [
