@@ -707,6 +707,15 @@
   resolved "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.22.5.tgz"
   integrity sha512-250ZGg4ipTL0TGvLlfACkIxS9+KLtIbn7BCZjsZj88zSg2Lvu3Xdw6dhAhfe/FjjXPVNCtcSp+WZjVsD3a/Zlw==
 
+"@rollup/wasm-node@^4.22.5":
+  version "4.22.5"
+  resolved "https://registry.npmjs.org/@rollup/wasm-node/-/wasm-node-4.22.5.tgz"
+  integrity sha512-42RTxk/g1NFaTRT7yo9T0K1OeJPS7xXAWQdUaajjmPPzZmfWjcms+tns8IQkwSlVrBB3EvE2y/FGwGwHmFAqEg==
+  dependencies:
+    "@types/estree" "1.0.6"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@rtsao/scc/-/scc-1.1.0.tgz"
