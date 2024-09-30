@@ -67,8 +67,8 @@ const config: ForgeConfig = {
           owner: 'mkaanilhan',
           name: 'sigmoida-desktop'
         },
-        prerelease: true
-      }
+        draft: true
+      },
     }
   ]
 };
