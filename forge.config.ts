@@ -13,7 +13,8 @@ const config: ForgeConfig = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        bin: 'Electron Starter'
+        authors: 'Alice and Bob',
+        description: 'An example Electron app'
       }
     },
     {

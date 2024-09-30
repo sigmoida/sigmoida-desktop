@@ -29,8 +29,7 @@
 
 
 import { createRoot } from 'react-dom/client';
-import Layout from './layout';
 import "./index.css";
 
 const root = createRoot(document.body);
-root.render(<Layout/>);
+root.render(<div>Hello world</div>);
