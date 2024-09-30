@@ -12,7 +12,6 @@ const config: ForgeConfig = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      platforms: ['win32'],
       config: {
         bin: 'Electron Starter'
       }
@@ -25,7 +24,6 @@ const config: ForgeConfig = {
     },
     {
       name: '@electron-forge/maker-deb',
-      platforms: ['linux'],
       config: {
         bin: 'Electron Starter',
         options: {
