@@ -6,13 +6,43 @@ import { MakerRpm } from '@electron-forge/maker-rpm';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
+import path from 'path'
 
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
   },
   rebuildConfig: {},
-  makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
+  makers: [
+    {
+      name: '@electron-forge/maker-squirrel',
+      config: {
+        bin: 'Electron Starter'
+      }
+    },
+    {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        bin: 'Electron Starter'
+      },
+    },
+    {
+      name: '@electron-forge/maker-deb',
+      config: {
+        bin: 'Electron Starter',
+        options: {
+          icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
+        },
+      }
+    },
+    {
+      name: '@electron-forge/maker-rpm',
+      config: {
+        bin: 'Electron Starter',
+        icon: path.join(process.cwd(), 'main', 'build', 'icon.png'),
+      }
+    }
+  ],
   plugins: [
     new VitePlugin({
       // `build` can specify multiple entry builds, which can be Main process, Preload scripts, Worker process, etc.
@@ -49,6 +79,18 @@ const config: ForgeConfig = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'mkaanilhan',
+          name: 'sigmoida-desktop'
+        },
+        prerelease: true
+      }
+    }
+  ]
 };
 
 export default config;
