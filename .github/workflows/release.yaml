@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies
-        run: npm ci
+        run: npm i
       - name: Make the app
         run: npm run make
       - name: Publish app
