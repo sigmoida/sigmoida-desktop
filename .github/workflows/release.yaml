@@ -18,8 +18,6 @@ jobs:
         python-version: '3.11.4'
     - name: Install dependencies
       run: npm install
-    - name: Export token
-      run: export GITBUH_TOKEN=${{ secrets.KEY }}
     - name: Publish
       env:
         GITHUB_TOKEN: ${{ secrets.KEY }}
@@ -38,8 +36,6 @@ jobs:
         python-version: '3.11.4'
     - name: Install dependencies
       run: npm install
-    - name: Export token
-      run: export GITBUH_TOKEN=${{ secrets.KEY }}
     - name: Publish
       env:
         GITHUB_TOKEN: ${{ secrets.KEY }}
