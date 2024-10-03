@@ -1,3 +1,4 @@
+import Bluetooth from './components/Bluetooth';
 import Layout from './Layout';
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
             <div className='p-4 space-y-4'>
                 <div>Connection: {connection}</div>
                 <p>Welcome to Sigmoida Desktop App</p>
+                <Bluetooth/>
             </div>
 
         </Layout>
