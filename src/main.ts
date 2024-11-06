@@ -1,4 +1,4 @@
-import { app, BrowserWindow,ipcMain,shell } from 'electron';
+import { app, BrowserWindow,ipcMain,shell,Tray } from 'electron';
 import path from 'path';
 import Squirrel from "electron-squirrel-startup";
 
@@ -14,12 +14,16 @@ if (Squirrel) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 800,
+    minHeight: 600,
+    width: 1200,
+    height: 900,
+    icon: './src/ui/assets/AppIcon',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
+
 
   mainWindow.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
      event.preventDefault();
@@ -34,17 +38,10 @@ const createWindow = () => {
 
   ipcMain.on('open-app', (event) => {
 
-   
-
-
      shell.openPath(path.join(app.getPath("desktop"), "Book1.xlsx"))
 
 
   })
-
-
-
-
 
   ipcMain.on('cancel-bluetooth-request', (event) => {
     selectBluetoothCallback('')

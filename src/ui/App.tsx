@@ -1,20 +1,66 @@
-import Bluetooth from './components/Bluetooth';
-import Layout from './Layout';
+import React from "react"
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
 
+import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
+
+import Analyze from "./routes/analyze";
+import Workspace from "./routes/workspace";
+import Reports from "./routes/reports";
+import Samples from "./routes/samples";
+import Help from "./routes/help";
+import Settings from "./routes/settings";
+import Login from "./routes/login";
+
+const router = createBrowserRouter([
+    {
+        element: <AuthLayout />,
+        children: [
+                    {
+                        path: "/",
+                        element: <Login/>,
+                    },
+        ]
+    },
+    {
+        element: <MainLayout />,
+        children: [
+                    {
+                        path: "/workspace",
+                        element: <Workspace/>,
+                    },
+                    {
+                        path: "/analyze",
+                        element: <Analyze/>,
+                    },
+                    {
+                        path: "/reports",
+                        element: <Reports/>,
+                    },
+                    {
+                        path: "/samples",
+                        element: <Samples/>,
+                    },
+                    {
+                        path: "/help",
+                        element: <Help/>,
+                    },
+                    {
+                        path: "/settings",
+                        element: <Settings/>,
+                    }
+        ]
+    }
+]);
 const App = () => {
-
-    const connection = navigator.onLine ? 'Online' : 'Offline';
-
     return (
-        <Layout>
 
-            <div className='p-4 space-y-4'>
-                <div>Connection: {connection}</div>
-                <p>Welcome to Sigmoida Desktop App</p>
-                <Bluetooth/>
-            </div>
-
-        </Layout>
+            <React.StrictMode>
+                <RouterProvider router={router} />
+            </React.StrictMode>
     );
 }
 
